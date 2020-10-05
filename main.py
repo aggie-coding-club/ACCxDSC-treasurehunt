@@ -19,7 +19,7 @@ def home():
         else:
             return "Not quite! Make sure you have no extra spaces and the values for each key if the full meaning of each acronym"
     else:
-        return 'WELCOME! return {"acc": "your_answer_here","dsc": "your_answer_here"}'
+        return 'WELCOME! Create a POST request on the same URL with the full forms of the acronyms "acc" and "dsc" via the following JSON object {"acc": "your_answer_here","dsc": "your_answer_here"}'
 
 
 @app.route('/numofficers', methods=['POST'])
@@ -29,7 +29,10 @@ def numOfficers():
         json = request.get_json()
 
         if 'num_officers' in json:
-            if json['num_officers'].isnumeric() and int(json['num_officers']) == 9:
+            numOfficers = json['num_officers']
+            if typeof numOfficers == int:
+                numOfficers = str(numOfficers)
+            if numOfficers.isnumeric() and int(numOfficers) == 9:
                 return "You are on a roll! For the next question, make a GET request to https://acc-dsc-api.herokuapp.com/initials/<dsc-lead-last-name> for your next question. With the first three letters of the last name (all lowercase) of the DSC lead as the value in the url (remove the angle brackets). Visit https://dsc.community.dev/texas-am-university for details"
             else:
                 return "Hmmm... Didn't get the number quite right. Try again!"
