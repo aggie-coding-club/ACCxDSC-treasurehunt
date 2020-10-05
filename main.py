@@ -17,7 +17,7 @@ def home():
             else:
                 return "Hmmm... Didn't get the names quite right. Try again!"
         else:
-            return "Not quite! Make sure you have no extra spaces and the values for each key if the full meaning of each acronym"
+            return 'Not quite! Make sure you have no extra spaces. The values for each acronymn be the full form. POST a JSON object {"acc": "your_answer_here","dsc": "your_answer_here"} on the same url'
     else:
         return 'WELCOME! Create a POST request on the same URL with the full forms of the acronyms "acc" and "dsc" via the following JSON object {"acc": "your_answer_here","dsc": "your_answer_here"}'
 
@@ -37,7 +37,7 @@ def numOfficers():
             else:
                 return "Hmmm... Didn't get the number quite right. Try again!"
         else:
-            return "Not quite! Make sure you have no extra spaces and the values for each key if the full meaning of each acronym"
+            return "Not quite! Make sure your key is num_officers"
 
 
 @app.route('/initials/<name>', methods=['GET'])
@@ -46,7 +46,7 @@ def initials(name):
         if name.lower() == 'sri':
             return "You're an expert! Next, make a POST request to https://acc-dsc-api.herokuapp.com/next-dsc-event with the JSON object payload of key “word” and the value as the 2nd to last word of the event on October 10th.  Visit https://dsc.community.dev/texas-am-university for details"
         else:
-            return "Not quite! Make sure you have the name right! Hint: She is also the webmaster for ACC"
+            return "Not quite! Make sure you have the first 3 letters of her last name right! Hint: She is also the webmaster for ACC"
 
 
 @app.route('/next-dsc-event', methods=['POST'])
@@ -61,7 +61,7 @@ def nextDscEvent():
             else:
                 return "Hmmm... Didn't get the word quite right. Try again!"
         else:
-            return "Not quite! Make sure you have no extra spaces and the values for the word key is a string. HINT: the word is 8 letters long and kinda quirky."
+            return "Not quite! Make sure you have no extra spaces. HINT: the word is 8 letters long and kinda quirky."
 
 
 @app.route('/static/images/acc-website-graphics', methods=['POST'])
