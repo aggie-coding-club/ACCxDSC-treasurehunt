@@ -4,7 +4,7 @@ import requests
 app = Flask(__name__)
 
 
-@app.route('/', methods=['POST'])
+@app.route('/', methods=['POST', 'GET'])
 def home():
     # POST
     if request.method == 'POST':
@@ -18,6 +18,8 @@ def home():
                 return "Hmmm... Didn't get the names quite right. Try again!"
         else:
             return "Not quite! Make sure you have no extra spaces and the values for each key if the full meaning of each acronym"
+    else:
+        return 'WELCOME! return {"acc": "your_answer_here","dsc": "your_answer_here"}'
 
 
 @app.route('/numofficers', methods=['POST'])
