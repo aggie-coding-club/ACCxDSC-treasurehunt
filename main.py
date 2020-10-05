@@ -44,7 +44,7 @@ def numOfficers():
 def initials(name):
     if request.method == 'GET':
         if name.lower() == 'sri':
-            return "You're an expert! Next, make a POST request to https://acc-dsc-api.herokuapp.com/next-dsc-event with the JSON object payload of key “word” and the value as the 2nd to last word of the event on October 10th.  Visit https://dsc.community.dev/texas-am-university for details"
+            return "You're an expert! Next, make a POST request to https://acc-dsc-api.herokuapp.com/next-dsc-event with the JSON object payload of key “word” and the value as the 2nd to last word of the event description on October 10th.  Visit https://dsc.community.dev/texas-am-university for details"
         else:
             return "Not quite! Make sure you have the first 3 letters of her last name right! Hint: She is also the webmaster for ACC"
 
