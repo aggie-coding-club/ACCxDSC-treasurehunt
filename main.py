@@ -30,7 +30,7 @@ def numOfficers():
 
         if 'num_officers' in json:
             numOfficers = json['num_officers']
-            if typeof numOfficers == int:
+            if type(numOfficers) is int:
                 numOfficers = str(numOfficers)
             if numOfficers.isnumeric() and int(numOfficers) == 9:
                 return "You are on a roll! For the next question, make a GET request to https://acc-dsc-api.herokuapp.com/initials/<dsc-lead-last-name> for your next question. With the first three letters of the last name (all lowercase) of the DSC lead as the value in the url (remove the angle brackets). Visit https://dsc.community.dev/texas-am-university for details"
