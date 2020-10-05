@@ -71,7 +71,10 @@ def finalStretch():
         json = request.get_json()
 
         if 'height' in json:
-            if json['height'].isnumeric() and int(json['height']) == 400:
+            height = json['height']
+            if type(height) is int:
+                height = str(height)
+            if height.isnumeric() and int(height) == 400:
                 return "CONGRATULATIONS! Message in the Zoom saying 'Liitle Mac Trash' to Shrey Shah privately and we will know you won!"
             else:
                 return "Hmmm... Didn't get the height quite right. Try again!"
